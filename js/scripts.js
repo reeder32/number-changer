@@ -21,15 +21,26 @@ function transormNumber(digit) {
   return str;
 }
 
-function evaluateInputValue(textInput) {
+function evaluateInputValue(textInput, reversed) {
   const inputNumbers = parseInt(textInput);
   let returnString = "";
-  for (let i = 0; i <= inputNumbers; i++) {
-    const str = transormNumber(i);
-    if (str) {
-      returnString = returnString + str;
-    } else {
-      returnString = returnString + i.toString() + " ";
+  if (reversed) {
+    for (let i = inputNumbers; i >= 0; i--) {
+      const str = transormNumber(i);
+      if (str) {
+        returnString = returnString + str;
+      } else {
+        returnString = returnString + i.toString() + " ";
+      }
+    }
+  } else {
+    for (let i = 0; i <= inputNumbers; i++) {
+      const str = transormNumber(i);
+      if (str) {
+        returnString = returnString + str;
+      } else {
+        returnString = returnString + i.toString() + " ";
+      }
     }
   }
   return returnString;
@@ -38,15 +49,23 @@ function evaluateInputValue(textInput) {
 
 // UI Logic
 $(document).ready(function () {
+  $(".reverse-button").click(function () {
+
+    const originalText = $("#number-input-literal").text();
+    const reversed = evaluateInputValue(originalText, true);
+    console.log(reversed);
+    $("#result").append(`<p> You reversed me:  <b id="result-txt">${reversed}<b>`);
+  });
   $("#formOne").submit(function (e) {
     const numberInput = $("#numberInput").val();
-    const result = evaluateInputValue(numberInput);
-    console.log(numberInput);
+    const result = evaluateInputValue(numberInput, false);
     if (result) {
-      $("#result").append(`<p> You entered: <em>${numberInput}<em>, and here is your translation:  <b>${result}<b>`)
+      $("#result").append(`<p> You entered: <em id="number-input-literal">${numberInput}<em>, and here is your translation:  <b>${result}<b>`);
+      $(".reverse-button").fadeIn();
     } else {
       alert("Try a different number");
     }
     e.preventDefault();
   });
+
 });
