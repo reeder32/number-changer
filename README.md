@@ -1,8 +1,8 @@
 # Number Changer
 
-#### A project that helps you find the right programming language based on your likes.
+#### A project that turns every day numbers into a combination of numbers and words when 1, 2, or 3 appear.
 
-Check out page [here]()
+Check out page [here](https://reeder32.github.io/number-changer/)
 
 #### By Nick Reeder
 

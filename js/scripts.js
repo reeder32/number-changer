@@ -51,10 +51,8 @@ function evaluateInputValue(textInput, reversed) {
 $(document).ready(function () {
   let numberIndex = 0;
   $(".reverse-button").click(function () {
-    console.log(numberIndex);
     const originalText = $(`#number-input-literal${numberIndex}`).text();
     const reversed = evaluateInputValue(originalText, true);
-    console.log(reversed);
     $("#result").append(`<p> You reversed me:  <b id="result-txt">${reversed}<b>`);
     $(this).fadeOut();
   });
