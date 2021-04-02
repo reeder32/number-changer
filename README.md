@@ -35,8 +35,8 @@ Check out page [here](https://reeder32.github.io/number-changer/)
 ### Other projects
 
 #### iOS work
-[Moody Weather](https://apps.apple.com/us/app/moody-weather/id1506337317)
-[Find My Mailbox](https://apps.apple.com/us/app/find-my-mailbox/id1530700085)
+*[Moody Weather](https://apps.apple.com/us/app/moody-weather/id1506337317)
+**[Find My Mailbox](https://apps.apple.com/us/app/find-my-mailbox/id1530700085)
 
 
 ### Tests
