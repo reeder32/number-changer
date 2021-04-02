@@ -49,18 +49,21 @@ function evaluateInputValue(textInput, reversed) {
 
 // UI Logic
 $(document).ready(function () {
+  let numberIndex = 0;
   $(".reverse-button").click(function () {
-
-    const originalText = $("#number-input-literal").text();
+    console.log(numberIndex);
+    const originalText = $(`#number-input-literal${numberIndex}`).text();
     const reversed = evaluateInputValue(originalText, true);
     console.log(reversed);
     $("#result").append(`<p> You reversed me:  <b id="result-txt">${reversed}<b>`);
+    $(this).fadeOut();
   });
   $("#formOne").submit(function (e) {
     const numberInput = $("#numberInput").val();
     const result = evaluateInputValue(numberInput, false);
     if (result) {
-      $("#result").append(`<p> You entered: <em id="number-input-literal">${numberInput}<em>, and here is your translation:  <b>${result}<b>`);
+      numberIndex++;
+      $("#result").append(`<p> You entered: <em id="number-input-literal${numberIndex}">${numberInput}<em>, and here is your translation:  <b>${result}<b>`);
       $(".reverse-button").fadeIn();
     } else {
       alert("Try a different number");
