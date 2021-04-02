@@ -1,44 +1,49 @@
 // Utility Logic
 
-let numbers = [1 - 3];
+let numbers = /[1 - 3]/;
 function isaMatch(index) {
-  return numbers.includes(index);
+  return index.toString().match(numbers);
 }
-function getReturnValue(index) {
 
+let transformedNumbers = [];
+
+function transormNumber(digit, length) {
+  const digitString = digit.toString();
   let returnArray = [];
-  if (isaMatch) {
-    const matchedNumber = index.toString().split("");
-    if (matchedNumber[0] === "1") {
-      returnArray.push("Beep!")
-    } else if (matchedNumber[0] === "2") {
-      returnArray.push("Boop!");
-    } else if (matchedNumber[0] === "3") {
-      returnArray.push("Won't you be my neighbor?");
+  if (isaMatch(digitString)) {
+    const numberArray = digitString.split("");
+    //console.log(numberArray);
+    for (let i = 0; i <= length; i++) {
+
+      if (numberArray[i] === "1") {
+        returnArray.push("Beep!");
+      } else if (numberArray[i] === "2") {
+        returnArray.push("Boop!");
+      } else if (numberArray[i] === "3") {
+        returnArray.push("Won't you be my neighbor?");
+      } else {
+        console.log(numberArray[i]);
+      }
     }
   } else {
-    console.log("here");
-    returnArray.push(index.toString());
+    //console.log(digitString);
+    returnArray.push(digitString);
   }
-  return returnArray;
-};
-// Business Logic
-
+  console.log(returnArray);
+  return returnArray.join(" ");
+  //console.log(numberArray);
+}
 
 function evaluateInputValue(textInput) {
-
   const inputNumbers = parseInt(textInput);
-  let returnString;
-  if (inputNumbers == 0) {
-    returnString == "0"
-  } else {
-    for (let i = 0; i < inputNumbers; i++) {
-      returnString = returnString + getReturnValue(i);
-    }
+  let returnString = "";
+  for (let i = 0; i <= inputNumbers; i++) {
+
+    returnString = returnString + transormNumber(i, textInput.toString().length);
   }
   return returnString;
 }
-let inputValue = evaluateInputValue(4);
-console.log(inputValue);
+let inputValue = evaluateInputValue(50);
+//console.log(inputValue);
 // UI Logic
 
