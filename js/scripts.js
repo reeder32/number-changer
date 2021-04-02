@@ -1,19 +1,8 @@
-// Utility Logic
-
-let numbers = ["1", "2", "3"];
-
-function isaMatch(numberArray) {
-  isIncluded = numberArray.some(function (e) {
-    //console.log(numbers.includes(e.toString()));
-    return numbers.includes(e.toString());
-  });
-  return isIncluded;
-}
+// Business Logic
 
 function transormNumber(digit) {
   const digitString = digit.toString();
-  const numberArray = digitString.split("");
-  //console.log(digitString, numberArray);
+  const numberArray = digitString.split("").reverse();
   let str = ""
   for (let i = 0; i <= numberArray.length; i++) {
 
@@ -41,8 +30,19 @@ function evaluateInputValue(textInput) {
   }
   return returnString;
 }
-let inputValue = evaluateInputValue(56);
-console.log(inputValue);
+
 
 // UI Logic
-
+$(document).ready(function () {
+  $("#formOne").submit(function (e) {
+    const numberInput = $("#numberInput").val();
+    const result = evaluateInputValue(numberInput);
+    console.log(numberInput);
+    if (result) {
+      $("#result").append(`<p> You entered: <em>${numberInput}<em>, and here is your translation: <b>${result}<b>`)
+    } else {
+      alert("Try a different number");
+    }
+    e.preventDefault();
+  });
+});
