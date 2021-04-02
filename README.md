@@ -41,24 +41,25 @@ Check out page [here](https://reeder32.github.io/number-changer/)
 
 ### Tests
 
-Describe: evaluateInputValue()
+Describe: evaluateInputValue(textInput, reversed)
 
 Test: "It should return an array with a 0 if the number 0 is inputted"
-Code: evaluateInputValue(0);
+Code: evaluateInputValue(0, false);
 Expected Output: 0
 
 Test: "It should return an array with 0 and Beep! if the number 1 is inputted"
-Code: evaluateInputValue(1);
+Code: evaluateInputValue(1, false);
 Expected Output: "0", "Beep!"
 
 Test: "It should return an array with 0 and Beep! and Boop! if the number 2 is inputted"
-Code: evaluateInputValue(2);
+Code: evaluateInputValue(2, false);
 Expected Output: "0", "Beep!, "Boop!"
 
 Test: "It should return an array with 0 and Beep! and Boop! Won't you be my neighbor? if the number 3 is inputted"
-Code: evaluateInputValue(3);
+Code: evaluateInputValue(3, false);
 Expected Output: "0", "Beep!, "Boop!, Won't you be my neighbor?"
 
-Test: "It should return an array with all numbers containing 1,2,3 being replaced with Beep!, Boop!, Won't you be my neighbor? prioritizing the first number"
-Code: evaluateInputValue(21);
-Expected Output: "0 Beep! Boop! Won't you be my neighbor?4 5 6 7 8 9 Beep! Beep! Beep! Beep! Beep! Beep! Beep! Beep! Beep! Beep! Boop! Boop!"
+Test: "It should return a reversed string from the last one entered"
+Code: evaluateInputValue(4, true);
+Expected Output: "4 Won't you be my neighbor? Boop! Beep! 0"
+
