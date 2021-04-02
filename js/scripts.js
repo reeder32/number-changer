@@ -2,16 +2,20 @@
 
 function transormNumber(digit) {
   const digitString = digit.toString();
-  const numberArray = digitString.split("").reverse();
+  const numberArray = digitString.split("");
   let str = ""
-  for (let i = 0; i <= numberArray.length; i++) {
+  for (let i = numberArray.length; i >= 0; i--) {
 
-    if (numberArray[i] === "1") {
-      str = str + "Beep! ";
+    if (numberArray[i] === "3") {
+      str = str + "Won't you be my neighbor? "
+      break;
     } else if (numberArray[i] === "2") {
       str = str + "Boop! ";
-    } else if (numberArray[i] === "3") {
-      str = str + "Won't you be my neighbor? "
+      break;
+    } else if (numberArray[i] === "1") {
+      str = str + "Beep! ";
+
+      break;
     }
   }
   return str;
@@ -39,7 +43,7 @@ $(document).ready(function () {
     const result = evaluateInputValue(numberInput);
     console.log(numberInput);
     if (result) {
-      $("#result").append(`<p> You entered: <em>${numberInput}<em>, and here is your translation: <b>${result}<b>`)
+      $("#result").append(`<p> You entered: <em>${numberInput}<em>, and here is your translation:  <b>${result}<b>`)
     } else {
       alert("Try a different number");
     }
