@@ -2,23 +2,15 @@
 
 function transormNumber(digit) {
   const digitString = digit.toString();
-  const numberArray = digitString.split("");
-  let str = ""
-  for (let i = numberArray.length; i >= 0; i--) {
-
-    if (numberArray[i] === "3") {
-      str = str + "Won't you be my neighbor? "
-      break;
-    } else if (numberArray[i] === "2") {
-      str = str + "Boop! ";
-      break;
-    } else if (numberArray[i] === "1") {
-      str = str + "Beep! ";
-
-      break;
-    }
+  if (digitString.includes("3")) {
+    return "Won't you be my neighbor? "
+  } else if (digitString.includes("2")) {
+    return "Boop! ";
+  } else if (digitString.includes("1")) {
+    return "Beep! ";
+  } else {
+    return digitString + " ";
   }
-  return str;
 }
 
 function evaluateInputValue(textInput, reversed) {
@@ -29,8 +21,6 @@ function evaluateInputValue(textInput, reversed) {
       const str = transormNumber(i);
       if (str) {
         returnString = returnString + str;
-      } else {
-        returnString = returnString + i.toString() + " ";
       }
     }
   } else {
